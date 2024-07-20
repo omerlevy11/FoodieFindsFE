@@ -15,7 +15,7 @@ if (!rootElement.innerHTML) {
   root.render(
     <NextUIProvider>
       <QueryClientProvider client={queryClient}>
-        <GoogleOAuthProvider clientId="409999073428-49khbidla0mq2rb119am8m0amua8jlml.apps.googleusercontent.com">
+        <GoogleOAuthProvider /*clientId="add clientid"*/>
           <StrictMode>
           </StrictMode>
         </GoogleOAuthProvider>

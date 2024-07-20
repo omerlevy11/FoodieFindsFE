@@ -1,13 +1,76 @@
-import apiClient, { CanceledError } from "./api-client"
+import apiClient from "./api-client";
 
-import { PostData } from "../components/Post"
+export type Comment = {
+  content: string;
+  responder_id: string;
+  userImgUrl: string;
+  username: string;
+};
+export type Post = {
+  _id?: string;
+  imgUrl: string;
+  content: string;
+  owner?: string;
+  comment?: Comment[];
+  userImgUrl?: string;
+  username?: string;
+};
+export const getAllUserPosts = async (userId: string) => {
+  const currentUser = localStorage.getItem("currentUser");
+  const { accessToken } = JSON.parse(currentUser);
+  const { data } = await apiClient.get(`/userPost/user/allPosts/${userId}`, {
+    headers: { Authorization: `JWT ${accessToken}` },
+  });
+  return data;
+};
 
-export { CanceledError }
-const getAllPosts = () => {
-    const abortController = new AbortController()
-    const req = apiClient.get<PostData[]>('studentpost', { signal: abortController.signal })
-    return { req, abort: () => abortController.abort() }
+export const createPost = async (post: Post) => {
+  const currentUser = localStorage.getItem("currentUser");
+  const { accessToken } = JSON.parse(currentUser);
+  const { data } = await apiClient.post(
+    "/userPost",
+    { ...post },
+    {
+      headers: { Authorization: `JWT ${accessToken}` },
+    }
+  );
+  return data;
+};
 
-}
+export const editPost = async (post: Post) => {
+  const currentUser = localStorage.getItem("currentUser");
+  const { accessToken } = JSON.parse(currentUser);
+  const { data } = await apiClient.put(
+    `/userPost/${post._id}`,
+    { ...post },
+    {
+      headers: { Authorization: `JWT ${accessToken}` },
+    }
+  );
+  return data;
+};
 
-export default { getAllPosts }
+export const deletePost = async (post: Post) => {
+  const currentUser = localStorage.getItem("currentUser");
+  const { accessToken } = JSON.parse(currentUser);
+  const { data } = await apiClient.delete(
+    `/userPost/${post._id}`,
+    {
+      headers: { Authorization: `JWT ${accessToken}` },
+    }
+  );
+  return data;
+};
+
+export const createComment = async (postId: string, content: string) => {
+  const currentUser = localStorage.getItem("currentUser");
+  const { accessToken, imgUrl, username } = JSON.parse(currentUser);
+  const { data } = await apiClient.put(
+    `/userPost/addComment/${postId}`,
+    { userImgUrl: imgUrl, content, username },
+    {
+      headers: { Authorization: `JWT ${accessToken}` },
+    }
+  );
+  return data;
+};
