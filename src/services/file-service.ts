@@ -5,7 +5,6 @@ interface IUpoloadResponse {
 }
 export const uploadPhoto = async (photo: File) => {
     return new Promise<string>((resolve, reject) => {
-        console.log("Uploading photo..." + photo)
         const formData = new FormData();
         if (photo) {
             formData.append("file", photo);
@@ -14,13 +13,10 @@ export const uploadPhoto = async (photo: File) => {
                     'Content-Type': 'image/jpeg'
                 }
             }).then(res => {
-                console.log(res);
                 resolve(res.data.url);
             }).catch(err => {
-                console.log(err);
                 reject(err);
             });
         }
     });
 }
-
