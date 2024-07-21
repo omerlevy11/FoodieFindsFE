@@ -1,10 +1,8 @@
-import { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
-
-
 import { NextUIProvider } from "@nextui-org/react";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
 
 const queryClient = new QueryClient();
 
@@ -15,9 +13,8 @@ if (!rootElement.innerHTML) {
   root.render(
     <NextUIProvider>
       <QueryClientProvider client={queryClient}>
-        <GoogleOAuthProvider /*clientId="add clientid"*/>
-          <StrictMode>
-          </StrictMode>
+        <GoogleOAuthProvider>
+          <StrictMode></StrictMode>
         </GoogleOAuthProvider>
       </QueryClientProvider>
     </NextUIProvider>

@@ -1,7 +1,5 @@
-import {nextui} from "@nextui-org/react";
-import defaultTheme from "tailwindcss/defaultTheme";
+import { nextui } from "@nextui-org/react";
 import svgToDataUri from "mini-svg-data-uri";
-import colors from "tailwindcss/colors";
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 /** @type {import('tailwindcss').Config} */
 export default {
