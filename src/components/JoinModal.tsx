@@ -10,13 +10,14 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
+import { useNavigate } from "@tanstack/react-router";
 import { ChangeEvent, useRef, useState } from "react";
 import avatarLogo from "../assets/avatar.jpeg";
+import { uploadPhoto } from "../services/file-service";
+import { registerUser } from "../services/user-service";
+import { IUser } from "../types";
 import { EyeFilledIcon } from "./icons/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./icons/EyeSlashFilledIcon";
-import { IUser, registerUser } from "../services/user-service";
-import { uploadPhoto } from "../services/file-service";
-import { useNavigate } from "@tanstack/react-router";
 
 export default function JoinModal() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -30,18 +31,17 @@ export default function JoinModal() {
   const [imgSrc, setImgSrc] = useState<File>();
 
   const toggleVisibility = () => setIsVisible(!isVisible);
-  const isInvalid = username === "" ||
-      firstName === "" ||
-      lastName === "" ||
-      email === "" ||
-      password === "" ||
-      secondPassword === "" ||
-      !imgSrc
+  const isInvalid =
+    username === "" ||
+    firstName === "" ||
+    lastName === "" ||
+    email === "" ||
+    password === "" ||
+    secondPassword === "" ||
+    !imgSrc;
 
-
-
-  const isPassInvalid = password !== secondPassword &&
-      (password !== "" || secondPassword !== "");
+  const isPassInvalid =
+    password !== secondPassword && (password !== "" || secondPassword !== "");
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -169,7 +169,9 @@ export default function JoinModal() {
                   type="password"
                   //   className="max-w-xs"
                   isInvalid={isPassInvalid}
-                  errorMessage={isPassInvalid && "Please enter a matching password"}
+                  errorMessage={
+                    isPassInvalid && "Please enter a matching password"
+                  }
                   value={secondPassword}
                   onValueChange={setSecondPassword}
                 />
@@ -178,7 +180,11 @@ export default function JoinModal() {
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                <Button color="primary" onPress={handleSubmit} isDisabled={isInvalid || isPassInvalid}>
+                <Button
+                  color="primary"
+                  onPress={handleSubmit}
+                  isDisabled={isInvalid || isPassInvalid}
+                >
                   Join in
                 </Button>
               </ModalFooter>

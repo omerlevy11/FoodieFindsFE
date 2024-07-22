@@ -14,7 +14,7 @@ function Index() {
   const currentUser = localStorage.getItem("currentUser");
   const navigate = useNavigate();
   if (currentUser) {
-    useNavigate({ to: "/home/me" });
+    navigate({ to: "/home/me" });
   }
 
   const words = [
