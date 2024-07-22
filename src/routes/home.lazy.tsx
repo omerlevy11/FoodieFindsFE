@@ -42,9 +42,9 @@ function Home() {
     if (key === "logout") {
       const res = await logout();
       if (res === "Logout succeeded") {
-        navigate({ to: "/" });
         localStorage.removeItem("currentTab");
         localStorage.removeItem("currentUser");
+        navigate({ to: "/" });
       }
     }
   };
