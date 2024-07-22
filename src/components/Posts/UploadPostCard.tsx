@@ -43,7 +43,7 @@ export default function UploadPostCard({ refetch }: Props) {
           </div>
           <Divider />
           <span className="text-foreground-600 pl-2">
-            Add your Advize on a vacation
+            Add your Review for a worthy FoodieFind!
           </span>
         </CardBody>
       </Card>
