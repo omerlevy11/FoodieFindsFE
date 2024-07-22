@@ -82,28 +82,9 @@ function Home() {
       >
         <NavbarBrand>
           <FoodieFinds />
-          <p className="font-bold text-inherit">Advizors</p>
+          <p className="font-bold text-inherit">Foodie Finds</p>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavbarItem isActive={currentTab === "0"}>
-            <Link
-              href="./chats"
-              onClick={() => localStorage.setItem("currentTab", "0")}
-              color={currentTab === "0" ? "primary" : "foreground"}
-            >
-              <Tooltip
-                content="Chats"
-                key="bottom"
-                placement="bottom"
-                color="foreground"
-              >
-                <FontAwesomeIcon
-                  icon={faComments}
-                  className="w-[48px] h-[20px]"
-                />
-              </Tooltip>
-            </Link>
-          </NavbarItem>
           <NavbarItem isActive={currentTab === "1"}>
             <Link
               href="./me"

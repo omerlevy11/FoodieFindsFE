@@ -121,7 +121,7 @@ export default function EditPost({
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        isDismissible={false}
+        isDismissable={false}
         size="2xl"
       >
         <ModalContent>

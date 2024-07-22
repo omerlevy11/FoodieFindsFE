@@ -85,7 +85,7 @@ export default function CreatePost({ isOpen, onOpenChange, refetch }: Props) {
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        isDismissible={false}
+        isDismissable={false}
         size="2xl"
       >
         <ModalContent>
