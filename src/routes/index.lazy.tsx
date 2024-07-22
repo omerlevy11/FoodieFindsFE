@@ -13,7 +13,7 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   const currentUser = localStorage.getItem("currentUser");
   const navigate = useNavigate();
-  if (currentUser) {
+  if (currentUser && JSON.parse(currentUser).username !== "default") {
     navigate({ to: "/home/me" });
   }
 
