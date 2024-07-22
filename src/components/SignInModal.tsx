@@ -19,8 +19,8 @@ export default function SignInModal() {
   const navigate = useNavigate();
 
   const handleSignIn = async () => {
-    const user = {username,password};
-    const res = await loginUser(user);
+    const userToLogin = {username,password};
+    const res = await loginUser(userToLogin);
     if(res) {
         const user = await getCurrentUser(res.accessToken);
         if (user) {
