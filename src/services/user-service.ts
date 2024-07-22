@@ -2,7 +2,7 @@ import { CredentialResponse } from "@react-oauth/google";
 import { IUser, editUser } from "../types";
 import apiClient from "./api-client";
 
-export const loginUser = async (user: IUser) => {
+export const loginUser = async (user: Partial<IUser>) => {
   const { data } = await apiClient.post("/auth/login", user);
 
   return data;
