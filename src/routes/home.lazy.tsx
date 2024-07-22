@@ -103,12 +103,12 @@ function Home() {
           </NavbarItem>
           <NavbarItem isActive={currentTab === "2"}>
             <Link
-              href="./places"
+              href="./restaurants"
               onClick={() => localStorage.setItem("currentTab", "2")}
               color={currentTab === "2" ? "primary" : "foreground"}
             >
               <Tooltip
-                content="Places"
+                content="Restaurants"
                 key="bottom"
                 placement="bottom"
                 color="foreground"

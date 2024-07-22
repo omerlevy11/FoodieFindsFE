@@ -18,6 +18,7 @@ import { Route as rootRoute } from './routes/__root'
 
 const HomeLazyImport = createFileRoute('/home')()
 const IndexLazyImport = createFileRoute('/')()
+const HomeRestaurantsLazyImport = createFileRoute('/home/restaurants')()
 const HomeMeLazyImport = createFileRoute('/home/me')()
 const HomeUserIdLazyImport = createFileRoute('/home/$userId')()
 
@@ -32,6 +33,13 @@ const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const HomeRestaurantsLazyRoute = HomeRestaurantsLazyImport.update({
+  path: '/restaurants',
+  getParentRoute: () => HomeLazyRoute,
+} as any).lazy(() =>
+  import('./routes/home.restaurants.lazy').then((d) => d.Route),
+)
 
 const HomeMeLazyRoute = HomeMeLazyImport.update({
   path: '/me',
@@ -75,6 +83,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeMeLazyImport
       parentRoute: typeof HomeLazyImport
     }
+    '/home/restaurants': {
+      id: '/home/restaurants'
+      path: '/restaurants'
+      fullPath: '/home/restaurants'
+      preLoaderRoute: typeof HomeRestaurantsLazyImport
+      parentRoute: typeof HomeLazyImport
+    }
   }
 }
 
@@ -85,6 +100,7 @@ export const routeTree = rootRoute.addChildren({
   HomeLazyRoute: HomeLazyRoute.addChildren({
     HomeUserIdLazyRoute,
     HomeMeLazyRoute,
+    HomeRestaurantsLazyRoute,
   }),
 })
 
@@ -107,7 +123,8 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "home.lazy.tsx",
       "children": [
         "/home/$userId",
-        "/home/me"
+        "/home/me",
+        "/home/restaurants"
       ]
     },
     "/home/$userId": {
@@ -116,6 +133,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/home/me": {
       "filePath": "home.me.lazy.tsx",
+      "parent": "/home"
+    },
+    "/home/restaurants": {
+      "filePath": "home.restaurants.lazy.tsx",
       "parent": "/home"
     }
   }
