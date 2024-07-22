@@ -28,13 +28,17 @@ function Index() {
       text: "next",
     },
     {
-      text: "destination",
+      text: "meal",
     },
     {
       text: "with",
     },
     {
-      text: "Advizors.",
+      text: "Foodie",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+    {
+      text: "Finds.",
       className: "text-blue-500 dark:text-blue-500",
     },
   ];
