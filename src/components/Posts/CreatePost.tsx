@@ -151,7 +151,6 @@ export default function CreatePost({ isOpen, onOpenChange, refetch }: Props) {
                   <FontAwesomeIcon
                     icon={faImage}
                     className="fa-xl text-default cursor-pointer"
-                    onClick={selectImg}
                   />
                 </div>
               </ModalBody>

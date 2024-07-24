@@ -3,6 +3,7 @@ import { useAsyncList } from "@react-stately/data";
 import { useNavigate } from "@tanstack/react-router";
 import { SearchIcon } from "../assets/SearchIcon";
 import { getUserByName } from "../services/user-service";
+import { IUser } from "../types";
 
 export default function SearchBar() {
   const navigate = useNavigate();
@@ -61,16 +62,16 @@ export default function SearchBar() {
       size="sm"
       inputValue={list.filterText}
       isLoading={list.isLoading}
-      items={list.items}
+      items={list.items as IUser[]}
       placeholder="Type to search..."
       onInputChange={list.setFilterText}
-      startContent={<SearchIcon size={24} />}
+      startContent={<SearchIcon size={24} width={24} height={24} />}
       selectorIcon={null}
       isClearable={false}
     >
       {(item) => (
         <AutocompleteItem
-          key={item.username}
+          key={item._id}
           className="capitalize"
           startContent={
             <Avatar alt="user avatar" className="w-6 h-6" src={item.imgUrl} />
