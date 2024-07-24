@@ -48,7 +48,7 @@ function Index() {
   ];
   return (
     <>
-      <div className="h-[43rem] w-full dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative">
+      <div className="h-[43rem] w-full relative">
         <div className="flex flex-col items-center justify-center h-[15rem]  ">
           <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
             The road to freedom starts from here
