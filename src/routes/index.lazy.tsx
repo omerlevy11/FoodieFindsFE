@@ -1,5 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { createLazyFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 import JoinModal from "../components/JoinModal";
 import Reviews from "../components/Reviews";
 import SignInModal from "../components/SignInModal";
@@ -11,11 +12,14 @@ export const Route = createLazyFileRoute("/")({
 });
 
 function Index() {
-  const currentUser = localStorage.getItem("currentUser");
   const navigate = useNavigate();
-  if (currentUser && JSON.parse(currentUser).username !== "default") {
-    navigate({ to: "/home/me" });
-  }
+
+  useEffect(() => {
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser && JSON.parse(currentUser).username !== "default") {
+      navigate({ to: "/home/me" });
+    }
+  }, []);
 
   const words = [
     {
