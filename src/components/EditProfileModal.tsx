@@ -25,7 +25,7 @@ export default function EditProfileModal({ isOpen, handleClose }) {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState(currentUser.firstName);
   const [lastName, setLastName] = useState(currentUser.lastName);
-  const [imgUrl, setImgUrl] = useState(currentUser.imgUrl);
+  const [imgUrl] = useState(currentUser.imgUrl);
   const [secondPassword, setSecondPassword] = useState("");
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -62,7 +62,7 @@ export default function EditProfileModal({ isOpen, handleClose }) {
     };
 
     if (user) {
-      const edited = await editProfile(currentUser._id, user);
+      const edited: Object = await editProfile(currentUser._id, user);
 
       if (edited) {
         localStorage.setItem(

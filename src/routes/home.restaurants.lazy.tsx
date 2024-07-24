@@ -1,10 +1,8 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
-import {Card, CardBody, CardHeader, Spinner, Image} from "@nextui-org/react";
-import useCurrentUser from "../hooks/useCurrentUser.tsx";
-import {getRestaurantsByCity} from "../services/restaurants-service.ts";
-import {RadioGroup, Radio} from "@nextui-org/react";
-import {useEffect, useState} from "react";
-import {useQuery} from "@tanstack/react-query";
+import { Card, CardBody, CardHeader, Image, Radio, RadioGroup, Spinner } from "@nextui-org/react";
+import { useQuery } from "@tanstack/react-query";
+import { createLazyFileRoute } from '@tanstack/react-router';
+import { useEffect, useState } from "react";
+import { getRestaurantsByCity } from "../services/restaurants-service.ts";
 
 
 
@@ -19,11 +17,10 @@ const rome = "187791"
 const amsterdam = "188590"
 
 function Restaurants () {
-  const curus = useCurrentUser();
   const [selectedRestaurant, setSelectedRestaurant] = useState<string>(paris);
   const [restaurants, setRestaurants] = useState([]);
 
-  const {data, isFetching, error} = useQuery({
+  const {data, isFetching} = useQuery({
     queryKey: ["getRestaurants", selectedRestaurant],
     queryFn: () => getRestaurantsByCity(selectedRestaurant),
     retry: false,

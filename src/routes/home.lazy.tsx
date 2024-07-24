@@ -1,4 +1,4 @@
-import { faComments, faEarth, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faEarth, faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Avatar,

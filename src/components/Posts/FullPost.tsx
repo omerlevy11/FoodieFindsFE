@@ -41,7 +41,7 @@ export default function FullPost({
   const [comments, setComments] = useState(post.comments);
 
   const createCommentMutation = useMutation({
-    mutationFn: async (payload) =>
+    mutationFn: async (payload: { id: string, content: string }) =>
       await createComment(payload.id, payload.content),
     onSuccess: (data) => {
       console.log(data);
@@ -110,7 +110,7 @@ export default function FullPost({
                     <FontAwesomeIcon
                       icon={faPaperPlane}
                       onClick={() =>
-                        createCommentMutation.mutate({
+                        createCommentMutation.mutate( {
                           id: post._id as string,
                           content: comment,
                         })
