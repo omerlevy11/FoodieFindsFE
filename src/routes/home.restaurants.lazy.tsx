@@ -32,7 +32,7 @@ function Restaurants () {
 
     useEffect(() => {
         if (data) {
-          setRestaurants(Array.from({length: 18}, (_, index) => data[index]))
+          setRestaurants(Array.from({length: 9}, (_, index) => data[index]))
           }
     },[data])
 

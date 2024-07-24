@@ -5,7 +5,7 @@ export const getRestaurantsByCity = async (city: string): Promise <Record<string
     encodedParams.set('location_id', city);
     encodedParams.set('language', 'en_US');
     encodedParams.set('currency', 'USD');
-    encodedParams.set('offset', '18');
+    encodedParams.set('offset', '9');
 
     const options = {
         method: 'POST',
