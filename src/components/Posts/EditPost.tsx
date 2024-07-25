@@ -67,8 +67,7 @@ export default function EditPost({
   }, [post]);
 
   const getNewImgUrl = async (imgSrc: File | null | undefined) => {
-    if (imgSrc) return await await uploadPhoto(imgSrc!);
-    if (imgSrc === null) return "";
+    if (imgSrc) return await uploadPhoto(imgSrc!);
     return post.imgUrl;
   };
 
@@ -173,7 +172,6 @@ export default function EditPost({
                   <FontAwesomeIcon
                     icon={faImage}
                     className="fa-xl text-default cursor-pointer"
-                    onClick={selectImg}
                   />
                 </div>
               </ModalBody>

@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/react";
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { loginUser, getCurrentUser } from "../services/user-service";
+import { getCurrentUser, loginUser } from "../services/user-service";
 
 export default function SignInModal() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -19,22 +19,21 @@ export default function SignInModal() {
   const navigate = useNavigate();
 
   const handleSignIn = async () => {
-    const userToLogin = {username,password};
+    const userToLogin = { username, password };
     const res = await loginUser(userToLogin);
-    if(res) {
-        const user = await getCurrentUser(res.accessToken);
-        if (user) {
-        navigate({ to: '/home/me' })
+
+    if (res) {
+      const user = await getCurrentUser(res.accessToken);
+
+      if (user) {
         localStorage.setItem(
-            'currentUser',
-            JSON.stringify({...user,...res})
-          );
-        }
-
-
+          "currentUser",
+          JSON.stringify({ ...user, ...res })
+        );
+        navigate({ to: "/home/me" });
+      }
     }
-
-  }
+  };
 
   return (
     <>

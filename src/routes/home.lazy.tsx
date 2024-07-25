@@ -145,7 +145,7 @@ function Home() {
               <DropdownItem
                 key="edit"
                 className="h-14 gap-2"
-                isDisabled={currentUser.username.includes("@")}
+                isDisabled={currentUser.isGoogleSignIn}
               >
                 Edit profile
               </DropdownItem>

@@ -65,13 +65,13 @@ export default function SearchBar() {
       items={list.items as IUser[]}
       placeholder="Type to search..."
       onInputChange={list.setFilterText}
-      startContent={<SearchIcon size={24} width={undefined} height={undefined} />}
+      startContent={<SearchIcon size={24} width={24} height={24} />}
       selectorIcon={null}
       isClearable={false}
     >
       {(item) => (
         <AutocompleteItem
-          key={item.username}
+          key={item._id}
           className="capitalize"
           startContent={
             <Avatar alt="user avatar" className="w-6 h-6" src={item.imgUrl} />

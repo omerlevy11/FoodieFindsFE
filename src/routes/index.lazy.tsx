@@ -1,5 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { createLazyFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 import JoinModal from "../components/JoinModal";
 import Reviews from "../components/Reviews";
 import SignInModal from "../components/SignInModal";
@@ -11,11 +12,14 @@ export const Route = createLazyFileRoute("/")({
 });
 
 function Index() {
-  const currentUser = localStorage.getItem("currentUser");
   const navigate = useNavigate();
-  if (currentUser && JSON.parse(currentUser).username !== "default") {
-    navigate({ to: "/home/me" });
-  }
+
+  useEffect(() => {
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser && JSON.parse(currentUser).username !== "default") {
+      navigate({ to: "/home/me" });
+    }
+  }, []);
 
   const words = [
     {
@@ -44,7 +48,7 @@ function Index() {
   ];
   return (
     <>
-      <div className="h-[43rem] w-full dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative">
+      <div className="h-[43rem] w-full relative">
         <div className="flex flex-col items-center justify-center h-[15rem]  ">
           <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
             The road to freedom starts from here

@@ -95,7 +95,7 @@ export const editProfile = async (userId: string, editUser: editUser) => {
 export const getUserByName = async (fullName: string) => {
   const currentUser = localStorage.getItem("currentUser");
   const { accessToken } = JSON.parse(currentUser);
-  const { data } = await apiClient.get(`/user/filter/${fullName}`, {
+  const { data } = await apiClient.get(`/user/filter?search=${fullName}`, {
     headers: { Authorization: `JWT ${accessToken}` },
   });
 
