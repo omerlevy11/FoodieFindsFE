@@ -24,6 +24,5 @@
 }
 
 body, html {
-    height: 100%;
-    margin: 0;
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('https://cdhf.ca/wp-content/uploads/2023/01/fast-food.png') no-repeat center center fixed; 
 }

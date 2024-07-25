@@ -28,8 +28,7 @@ const testimonials = [
     title: "",
   },
   {
-    quote:
-      "All that attractions we see or seem here are but a dream within a dream.",
+    quote: "All that attractions we see or seem here are but a dream within a dream.",
     name: "Mark Berger",
     title: "",
   },
