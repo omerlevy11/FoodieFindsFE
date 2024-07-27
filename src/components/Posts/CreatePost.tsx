@@ -92,7 +92,7 @@ export default function CreatePost({ isOpen, onOpenChange, refetch }: Props) {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-center">
-                Create Post
+                Create Review
               </ModalHeader>
               <Divider />
               <ModalBody>
@@ -137,7 +137,7 @@ export default function CreatePost({ isOpen, onOpenChange, refetch }: Props) {
                   onChange={imgSelected}
                 />
                 <Textarea
-                  placeholder={`What are you Thinking on, ${currentUser.username}?`}
+                  placeholder={`What is your review, ${currentUser.username}?`}
                   isRequired
                   value={content}
                   onValueChange={setContent}
@@ -147,7 +147,7 @@ export default function CreatePost({ isOpen, onOpenChange, refetch }: Props) {
                   onClick={selectImg}
                   className="border-[2px] text-sm text-foreground-600 rounded-xl w-full h-12 flex justify-between p-2 items-center cursor-pointer"
                 >
-                  <span>Add to your Post</span>
+                  <span>Add to your Review</span>
                   <FontAwesomeIcon
                     icon={faImage}
                     className="fa-xl text-default cursor-pointer"

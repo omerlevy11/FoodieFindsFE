@@ -35,7 +35,7 @@ export default function UploadPostCard({ refetch }: Props) {
                   inputWrapper:
                     "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
                 }}
-                placeholder={`What are you Thinking on, ${currentUser.username}?`}
+                placeholder={`What is your review, ${currentUser.username}?`}
                 size="sm"
                 isReadOnly
               />
@@ -43,7 +43,7 @@ export default function UploadPostCard({ refetch }: Props) {
           </div>
           <Divider />
           <span className="text-foreground-600 pl-2">
-            Add your Review for a worthy FoodieFind!
+            Add your Review for a worthy Foodie Find!
           </span>
         </CardBody>
       </Card>

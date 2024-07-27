@@ -127,7 +127,7 @@ export default function EditPost({
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-center">
-                Edit Post
+                Edit Review
               </ModalHeader>
               <Divider />
               <ModalBody>
@@ -159,7 +159,7 @@ export default function EditPost({
                   onChange={imgSelected}
                 />
                 <Textarea
-                  placeholder={`What are you Thinking on, ${currentUser.username}?`}
+                  placeholder={`What is your review, ${currentUser.username}?`}
                   value={content}
                   onValueChange={setContent}
                 />
@@ -168,7 +168,7 @@ export default function EditPost({
                   onClick={selectImg}
                   className="border-[2px] text-sm text-foreground-600 rounded-xl w-full h-12 flex justify-between p-2 items-center cursor-pointer"
                 >
-                  <span>Edit your Post</span>
+                  <span>Edit your Review</span>
                   <FontAwesomeIcon
                     icon={faImage}
                     className="fa-xl text-default cursor-pointer"

@@ -108,14 +108,14 @@ export default function Posts({ posts, refetch, userId }: Props) {
                     variant="light"
                     fullWidth
                   >
-                    Edit Post
+                    Edit Review
                   </Button>
                   <Button
                     onClick={() => handleDeletePost(posts[index], index)}
                     variant="light"
                     fullWidth
                   >
-                    Delete Post
+                    Delete Review
                   </Button>
                 </PopoverContent>
               </Popover>
