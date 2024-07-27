@@ -17,31 +17,31 @@ export default function Reviews() {
 const testimonials = [
   {
     quote:
-      "The best website ever! easy to use, very comfortable multiple sites to explore.",
-    name: "Steve Love",
+      "An outstanding website! User-friendly with plenty of amazing restaurants to explore comfortably..",
+    name: "John Doe",
     title: "",
   },
   {
     quote:
-      "I never thought I would fine such amazing attractions in such a short time without putting so much effort.",
-    name: "Larry Hamilton",
+      "I was amazed to find such fantastic dining spots so quickly and effortlessly.",
+    name: "Emily Clark",
     title: "",
   },
   {
-    quote: "All that attractions we see or seem here are but a dream within a dream.",
-    name: "Mark Berger",
-    title: "",
-  },
-  {
-    quote:
-      "It is undisputable that this website is the best to fins attraction or vacation",
-    name: "Jane Austen",
+    quote: "Every restaurant we discover here feels like a dream within a dream, thanks to the wonderful reviews.",
+    name: "Alex Johnson",
     title: "",
   },
   {
     quote:
-      "Call me Fanatic. but I am in love with this coll and modern website",
-    name: "Herman Leigh",
+      "There’s no doubt Foodie Finds is the best website for discovering new dining experiences and planning outings.",
+    name: "Sarah Brown",
+    title: "",
+  },
+  {
+    quote:
+      "You might call me a fanatic, but I absolutely adore this sleek and modern restaurant-finding website.",
+    name: "Michael Reed",
     title: "",
   },
 ];
